@@ -5,12 +5,12 @@ namespace Allergy.Objects
 {
   public class Allergies
   {
-    public int allergyScore {get; set;}
+    public int AllergyScore {get; set;}
     private List<string> foundAllergies = new List<string> {};
 
     public Allergies(int allergyScore)
     {
-      this.allergyScore = allergyScore;
+      this.AllergyScore = allergyScore;
     }
     public List<string> GetAll()
     {
@@ -18,7 +18,12 @@ namespace Allergy.Objects
     }
     public List<string> IsAllergy()
     {
-      if(this.allergyScore == 1)
+      if(this.AllergyScore>=128)
+      {
+        this.AllergyScore -=128;
+        foundAllergies.Add("cats");
+      }
+      if(this.AllergyScore == 1)
       {
         foundAllergies.Add("egg");
       }
