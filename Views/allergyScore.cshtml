@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/Content/css/styles.css" rel="stylesheet" type="text/css">
+    <title>Allergy Score Tester</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <h1>Allergy Tester</h1>
+    </div>
+    <div class="container center">
+      <h2>Enter your allergy score to find your possible allergies:</h2><br>
+
+      <form action="/new-score" method="post">
+        <label for="allergyScore">Enter your Score</label>
+        <input type="number" name="allergyScore" defaultvalue="0">
+        <button type="submit">Submit</button>
+      </form>
+
+      @if(Model.Count>0)
+      {
+        <h2>Your possible allergies are: </h2>
+        <ul>
+          @foreach(string allergen in Model)
+          {
+            <li>@allergen</li>
+          }
+
+        </ul>
+      }
+
+    </div>
+  </body>
+</html>
